@@ -141,7 +141,14 @@ const student1 = {
   }
 }
 
-const copyStudent = {...student1,skills:{frontEnd:[{skill: 'BootStrap',level: 8}]}}
-console.log(copyStudent)
+const copyStudent = JSON.parse(JSON.stringify(student1));
+copyStudent.skills.frontEnd.push({skills: 'Bootstrap', level:8})
+copyStudent.skills.backEnd.push({skills: 'Express',level: 9})
+copyStudent.skills.dataBase.push({skills: 'SQL', level: 8})
+copyStudent.skills.dataScience.push('SQL')
+console.log(copyStudent) 
+console.log(student1)
+
+
 
 

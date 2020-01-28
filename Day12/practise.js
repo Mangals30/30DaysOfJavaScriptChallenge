@@ -109,14 +109,71 @@ let rega6 = /\d?/ig
 console.log(sentence1.match(rega6))
 let rega7 =/\d./ig
 console.log(sentence1.match(rega7))
+let rega8 = /\d+./ig
+console.log(sentence1.match(rega8))
 
 
 let texts = 'Apple and banana are fruits.An apple a day keeps the doctor away and Banana is good for bones.'
+
 let pat1 = '[Aa]pple'
 console.log(texts.match(pat1))
+
 let pat2 = /[Aa]pple/g
 console.log(texts.match(pat2))
 
+let pat3 = /[Aa]pple|[Bb]anana/
+console.log(texts.match(pat3))
 
+let pat4 = /apple|banana/ig
+console.log(texts.match(pat4))
 
+let text1 = 'Apple and banana are fruits'
+let pat5 = /[a]/g
+console.log(text1.match(pat5))
 
+let pat6 = /[a]+/g
+console.log(text1.match(pat6))
+
+let pat7 = /[a]./g
+console.log(text1.match(pat7))
+
+let pat8 = /[a]*/g
+console.log(text1.match(pat8))
+
+let pat9 = /[a]+./g
+console.log(text1.match(pat9))
+
+let pat10 = /[a].+/g
+console.log(text1.match(pat10))
+let pat11 = /\d.+/g
+console.log(sentence1.match(pat11))
+
+let pat12 = /[a].*/g
+console.log(text1.match(pat12))
+let pat13 = /\d.*/g
+console.log(sentence1.match(pat13))
+
+//let pat14 = /[a]*+/g
+//console.log(text1.match(pat13))
+//let pat15 = /\d*+/
+//console.log(sentence1.match(pat15))
+let pat16 = /[a]*./g
+console.log(text1.match(pat16))
+let pat17 = /\d*./g
+console.log(sentence1.match(pat17))
+
+let pat18 = /[a]?/g
+console.log(text1.match(pat18))
+
+let pat19 = /\d?/g
+console.log(sentence1.match(pat19))
+
+let pat20 = /[a]?./ig
+console.log(text1.match(pat20))
+let pat21 = /\d?./ig
+console.log(sentence1.match(pat21))
+
+/*let pat22 = /[a]?*//*ig
+console.log(text1.match(pat22))
+let pat23 = /\d?*//*ig
+console.log(sentence1.match(pat23))*/

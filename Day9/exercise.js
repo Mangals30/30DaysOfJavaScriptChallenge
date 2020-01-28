@@ -292,6 +292,141 @@ langCount.sort((a,b) => {
     return 0
 })
 const tenLang = langCount.slice(0,10)
-console.log(tenLang)
 const mostTenLang = tenLang.map(lang => lang.language)
 console.log('Most spoken ten languages',mostTenLang)
+
+//*** Use countries_data.js file create a function
+// which create the ten most populated countries
+const populatedCont = allCountries => {
+    const populationObj = []
+    populationArr = allCountries.map(country => country.population)
+    populationArr.sort((a,b) => a-b)
+    populationArr.reverse()
+    const tenPopulatedArr = populationArr.slice(0,10)
+    for (const population of tenPopulatedArr) {
+        for (const country of allCountries) {
+            if(country.population == population) {
+                 populationObj.push({country:country.name, population:country.population})
+            }
+        }
+    }
+    return populationObj
+}
+console.log('Ten most populated countries',populatedCont(allCountries))
+
+//*** Try to develop a program which calculate
+// measure of central tendency of a sample
+//(mean, median, mode) and measure of variability
+//(range, variance, standard deviation).
+// In addition to those measures find the min,
+// max, count, percentile, and frequency
+// distribution of the sample. 
+//You can create an object called statistics 
+//and create all the functions which do 
+//statistical calculations as method for the 
+//statistics object. Check the output below.
+
+const ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
+const statistics = {}
+statistics.ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
+statistics.count = function () {
+    return this.ages.length
+}
+statistics.sum = function () {
+    let sumOfAges = this.ages.reduce((accum,curr) => accum + curr)
+    return sumOfAges
+}
+statistics.min = function () {
+    const minAge = [...this.ages]
+    minAge.sort()
+    return minAge[0]
+}
+statistics.max = function() {
+    const maxAge = [...this.ages]
+    maxAge.sort()
+    maxAge.reverse()
+    return maxAge[0]
+}
+statistics.range = function() {
+    return `${this.max()-this.min()}`
+}
+statistics.mean = function() {
+    return `${Math.round(this.sum()/this.count())}`
+}
+statistics.median = function() {
+    const medianArr = [...this.ages]
+    medianArr.sort()
+    const index = Math.ceil((medianArr.length)/2)
+    const median = medianArr[index - 1]
+    return median
+}
+statistics.mode = function() {
+    const modes = {}
+    const modeObj =[]
+    const modeArr = [...this.ages]
+    const modeSet = new Set(modeArr)
+    const modeUniq = Array.from(modeSet)
+    for (const element of modeUniq) {
+        let count = 0
+        for (const arr of modeArr) {
+            if(element == arr) {
+             count++
+            }
+        }
+        modeObj.push({element,count})
+        modeObj.sort((a,b) =>{
+            if(a.count<b.count) return 1
+            if(a.count>b.count) return -1
+            return 0
+        })
+    }
+    modes.mode = modeObj[0].element
+    modes.count = modeObj[0].count
+    return modes
+}
+statistics.variance = function () {
+    const varianceArr = [...this.ages]
+    let vari = 0
+    for (const variance of varianceArr){
+        vari = vari + (this.mean()-variance)**2
+    }
+    return `${vari/this.count()}`
+}
+statistics.std = function ()  {
+    const std = Math.sqrt(this.variance())
+    return (std.toFixed(1))
+}
+statistics.frequency = function () {
+    const modeObj = {}
+    const modeArr = [...this.ages]
+    const modeSet = new Set(modeArr)
+    const modeUniq = Array.from(modeSet)
+    for (const element of modeUniq) {
+        let count = 0
+        for (const arr of modeArr) {
+            if(element == arr) {
+             count++
+            }
+        }
+        modeObj[element] = count
+    }
+    return modeObj
+}
+statistics.describe = function() {
+       return {
+    Count: this.count(),
+    Sum:  this.sum(),
+    Min:  this.min(),
+    Max:  this.max(),
+    Range: this.range(),
+    Mean:  this.mean(),
+    Median:  this.median(),
+    Mode:  this.mode(),
+    Variance:  this.variance(),
+    StandardDeviation: this.std(),
+    FrequencyDistribution: this.frequency()
+    }
+}
+console.log(statistics.frequency())
+const obj = statistics.describe()
+console.log(JSON.stringify(obj,undefined,4))

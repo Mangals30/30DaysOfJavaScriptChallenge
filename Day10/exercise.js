@@ -84,11 +84,10 @@ langCount.sort((a,b) => {
     return 0
 })
 const tenLang = langCount.slice(0,count)
-console.log(tenLang)
 const tenLangMap = new Map()
 for (const lang of tenLang){
     tenLangMap.set(lang.counts,lang.language)
 }
-return (Array.from(tenLangMap))
+return (tenLang)
 }
 console.log(mostSpokenLanguages(allCountries,10))
