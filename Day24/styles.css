@@ -1,0 +1,25 @@
+.wrapper{
+    text-align: center;
+    background-image: url(/Day24/images/galaxy.gif);
+    height: 100rem;
+}
+.flex-container {
+    display: flex;
+    margin-top: 10rem;
+    justify-content: flex-start;
+}
+.planet-image {
+    width:20rem;
+    height: 20rem;
+    
+}
+.flex-item-description {
+    font-weight: 700;
+    color: white;
+}
+
+.error {
+    font-size: 20px;
+    text-align: center;
+
+}
