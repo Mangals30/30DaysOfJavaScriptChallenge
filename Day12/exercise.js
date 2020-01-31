@@ -90,6 +90,7 @@ if ((mat7!=null) && (mat8==null)) {
 for (const para of paraArrUni) {
     let count = 0
     let reg = new RegExp(para,'gi')
+    console.log()
     for (const para1 of paraArr) {
         if (para1.toLowerCase().match(reg)) {
             count++

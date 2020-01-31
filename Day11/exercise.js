@@ -69,8 +69,14 @@ const users = [
     age:20
   }
   ]
+  for (const user of users ) {
+
+    console.log(user.name)
+
+  }
 const userArr = []
 for (const {name,skills} of users){
+  console.log(name,skills)
   if (skills.length < 2) {
    userArr.push(name)
   }
