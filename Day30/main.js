@@ -1,5 +1,6 @@
 const countriesDislay = document.querySelector('.coutries-container')
 const statisticsDisplay = document.querySelector('.statistics-container')
+const statisticsHash = document.querySelector('#statistics-container')
 const noOfCount = document.querySelector('.no-of-count')
 noOfCount.textContent = countries.length
 const totalCountries = document.querySelector('#number')
@@ -13,6 +14,7 @@ const most = document.querySelector('.most')
 const graphWrapper = document.querySelector('.graph-wrapper')
 const worldDiv = document.querySelector('.world-div')
 const popChart = document.querySelector('.pop-chart')
+const searchMessage = document.querySelector('.search-message')
 let total = 0
 
 const displayCountries = (country) =>{
@@ -65,6 +67,7 @@ const errorMessage = () => {
 validateSearch = (searchValue) => {
     total = 0
     if (searchValue.length == 0) {
+        searchMessage.style.display = 'none'
         allCountries.sort()
         for (const country of allCountries) {  
         displayCountries(country)
@@ -74,18 +77,23 @@ validateSearch = (searchValue) => {
     else {
 
     
-    if (!searchValue.match(/^[A-Za-z]*$/)) {
+    if (!searchValue.match(/^[A-Za-z\s]*$/)) {
         total = 0
         divError.style.display = 'block'
         errorMessage()
     }
     else {
         countriesDislay.textContent = ''
+        searchMessage.style.display = 'block'
         const countryArr = []
         let reg = new RegExp(searchValue,'gi')
         for(const country of allCountries) {
-            if (reg.test(country.name) || reg.test(country.capital) || reg.test(country.languages)) {
+           if (reg.test(country.name) || reg.test(country.capital) || reg.test(country.languages)) {
+            //if((country.name.match(reg)) || (country.capital.match(reg)) || (country.languages.toString().match(reg))) {
             //if(country.name.toLowerCase().includes(searchValue.toLowerCase()) || country.capital.toLowerCase().includes(searchValue.toLowerCase()) || country.languages.includes(searchValue.toLowerCase()) || country.languages.includes(searchValue.toUpperCase())) {
+               //if(reg.test('United Kingdom of Great Britain and Northern Ireland')) {
+                  //console.log(country.name, country.name.match(reg))
+              // }
                 const countryObj = {}
                 countryObj.name = country.name
                 countryObj.capital = country.capital
@@ -103,7 +111,7 @@ validateSearch = (searchValue) => {
     }
     }
 
-    
+
 }
 
     
@@ -183,7 +191,7 @@ const tenSpokenLanguages = (countries) => {
         const populatedArr = tenPopulatedCountries(countries)
         const totalPop = getTotalPopulation(countries)
         const popArray = populatedArr.map(country => country.population)
-        const sumOfPop = popArray.reduce((accum,current) => accum + current)
+        //const sumOfPop = popArray.reduce((accum,current) => accum + current)
     
         feedBack.style.display = 'block'
         most.textContent = 'populated countries'
@@ -275,18 +283,15 @@ const tenSpokenLanguages = (countries) => {
     })    
 
     popChart.addEventListener('click',event => {
-        if (searchValue.length == 0) {
+        if (inputSearch.value.length == 0) {
             statisticsDisplay.style.display='block'
             displayPopulation()
+            //document.location.hash = ''
         }
 
     })
 
 
 
-
-
-
-            
         
     
