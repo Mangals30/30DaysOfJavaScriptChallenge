@@ -7,6 +7,7 @@ const div2 = document.querySelector('.div2')
 const div3 = document.querySelector('.div3')
 
 
+
 const randomFontWeight = () => {
     const fontWeightArray = ['100','200','300','400','500','600','700','800','900']
     let index = Math.floor(Math.random() * fontWeightArray.length)
@@ -43,27 +44,28 @@ const createDivs = (word,div) => {
 const backgroundTimer = () => {
     mainDiv.style.backgroundColor = randomHexaId()
     mainDiv.style.fontWeight = randomFontWeight()
-        /*div1.textContent = ''
-        div2.textContent = ''
-        div3.textContent = ''
-        createDivs(word1,div1)
-        createDivs(word2,div2)
-        createDivs(word3,div3)*/
+
     
 
 }
 const divTimer = () => {
-    setTimeout(() => {
+    const subDiv = document.createElement('div')
+    subDiv.setAttribute('class','sub-div')
+    //mainDiv.textContent = ''
     div1.textContent = ''
     div2.textContent = ''
     div3.textContent = ''
     createDivs(word1,div1)
     createDivs(word2,div2)
     createDivs(word3,div3)
-    })
+    subDiv.appendChild(div1)
+    subDiv.appendChild(div2)
+    subDiv.appendChild(div3)
+    mainDiv.appendChild(subDiv)
+
 }
 
 
-const mainDivTimer = setInterval(backgroundTimer,3000)
-const wordTimer = setInterval(divTimer,3000)
+const mainDivTimer = setInterval(backgroundTimer,2000)
+const wordTimer = setInterval(divTimer,2000)
 

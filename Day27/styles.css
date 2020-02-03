@@ -66,18 +66,31 @@
     display: flex;
 
 }
+.outers-skills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .tech {
+    animation: landSmoothly 0s infinite;
+    animation-duration: 2s;
     margin-left: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
     font-weight: 900;
-    animation-name: fadein;
-    animation-delay: 1s;
 
+    
 }
-@keyframes fadein {
-   from   { opacity: 0; }
-    to { opacity: 1; }
+@keyframes landSmoothly {
+    0% {
+        opacity: 0;
+    }
+    
+    
+    100% {
+        opacity: 1;
+        
+    }
 }
