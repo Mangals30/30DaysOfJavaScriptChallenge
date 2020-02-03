@@ -1,0 +1,83 @@
+.wrapper {
+    margin-left: 10rem;
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+}
+.name-header {
+
+    letter-spacing: 0.5rem;
+    font-size: 35px;
+}
+
+.header-div {
+    display: flex;
+    height: 5rem;
+    background-color: #E6C9C5;
+    align-items: center;
+}
+.emoji {
+ margin-left: 1rem;
+}
+
+.move {
+    margin-left: 1rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    
+    80% {
+        transform: translateX(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+.intro {
+    line-height: 1.5rem;
+}
+.challenges {
+    display: flex;
+    justify-content: space-around;
+}
+.js-everyone,.python,.js-challenge {
+    cursor: pointer;
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: thin;
+    background-color: whitesmoke;
+}
+.js-everyone:hover,.python:hover,.js-challenge:hover {
+    background-color: #E6C9C5;
+}
+.technologies {
+
+    display: flex;
+
+}
+.tech {
+    margin-left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 900;
+    animation-name: fadein;
+    animation-delay: 1s;
+
+}
+@keyframes fadein {
+   from   { opacity: 0; }
+    to { opacity: 1; }
+}
