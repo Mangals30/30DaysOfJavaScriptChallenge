@@ -66,6 +66,6 @@ const divTimer = () => {
 }
 
 
-const mainDivTimer = setInterval(backgroundTimer,2000)
-const wordTimer = setInterval(divTimer,2000)
+const mainDivTimer = setInterval(backgroundTimer,3000)
+const wordTimer = setInterval(divTimer,3000)
 
