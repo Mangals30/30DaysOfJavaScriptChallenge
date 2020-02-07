@@ -1,3 +1,4 @@
+/*Declaration of global variables*/ 
 const mainDiv = document.querySelector('.main-div')
 let word1 = '30  DAYS  OF  JAVASCRIPT' 
 let word2 = 'CHALLENGE  2020 '
@@ -6,8 +7,7 @@ const div1 = document.querySelector('.div1')
 const div2 = document.querySelector('.div2')
 const div3 = document.querySelector('.div3')
 
-
-
+/*Function to display random font weights*/
 const randomFontWeight = () => {
     const fontWeightArray = ['100','200','300','400','500','600','700','800','900']
     let index = Math.floor(Math.random() * fontWeightArray.length)
@@ -15,6 +15,7 @@ const randomFontWeight = () => {
     return fontWeight
 }
 
+/*Function to display random colors */
 const randomHexaId = () => {
     let hexaChar= '0123456789abcdef'
     let hexaLen = hexaChar.length
@@ -28,9 +29,8 @@ const randomHexaId = () => {
     
     return hexaId
 }
-
+/*Function to create the word divs*/
 const createDivs = (word,div) => {
-    //clearInterval(backgroundTimer)
     for (let i=0; i<word.length; i++) {
         const alpha = document.createElement('div')
         alpha.style.fontSize = '40px'
@@ -40,18 +40,15 @@ const createDivs = (word,div) => {
     }
 }
 
-
+/*Function to display random hexa colors of the background*/ 
 const backgroundTimer = () => {
     mainDiv.style.backgroundColor = randomHexaId()
     mainDiv.style.fontWeight = randomFontWeight()
-
-    
-
 }
+/*Function to display the word divs*/ 
 const divTimer = () => {
     const subDiv = document.createElement('div')
     subDiv.setAttribute('class','sub-div')
-    //mainDiv.textContent = ''
     div1.textContent = ''
     div2.textContent = ''
     div3.textContent = ''
@@ -65,7 +62,7 @@ const divTimer = () => {
 
 }
 
-
+/*Setting the times for background and the words*/ 
 const mainDivTimer = setInterval(backgroundTimer,3000)
 const wordTimer = setInterval(divTimer,3000)
 

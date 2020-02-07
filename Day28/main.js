@@ -11,7 +11,7 @@ let addFlag = 0
 let minusFlag = 0
 
 /*Creating the player object to be displayed*/ 
-let users = [{
+let players = [{
     firstName: 'Mangalam',
     lastName: 'Krishnan',
     country: 'India',
@@ -98,13 +98,13 @@ const dateToday = () => {
 }
 
 /*Function to sort the players by the score*/ 
-const sortByScore = (users) => {
-    users.sort((a,b) => {
+const sortByScore = (players) => {
+    players.sort((a,b) => {
         if(a.score < b.score) return 1
         if(a.score > b.score) return -1
         return 0
     })
-    return users
+    return players
 }
 
 /*Function to display the player name and the time when the player is added*/ 
@@ -142,32 +142,32 @@ playerDiv.appendChild(scoreDiv)
 /*Function to delete the player*/ 
 const deletePlayer = (firstName,lastName,country,score) => {
     const tempArray = []
-    for(user of users) {
-        if (!(user.firstName == firstName && user.lastName == lastName )) {
-            tempArray.push(user)
+    for(player of players) {
+        if (!(player.firstName == firstName && player.lastName == lastName )) {
+            tempArray.push(player)
 
         }
     }
-    const deluser =sortByScore(tempArray)
-    users = [...deluser]
-    addPlayer(users)
+    const delPlayer =sortByScore(tempArray)
+    players = [...delPlayer]
+    addPlayer(players)
 }
 
 /*Function to add or minus the scores*/ 
 const addOrMinusScore = (firstName,lastName,score) => {
-    for(user of users) {
-        if(user.firstName == firstName && user.lastName == lastName) {
+    for(player of players) {
+        if(player.firstName == firstName && player.lastName == lastName) {
             if(addFlag == 1) {
-            user.score = parseInt(score) + 5
+                player.score = parseInt(score) + 5
             }
             if(minusFlag == 1) {
-                user.score = parseInt(score) - 5
+                player.score = parseInt(score) - 5
             }
         }
     }
-    const sortedArray = sortByScore(users)
-    users = [...sortedArray]
-    addPlayer(users)
+    const sortedArray = sortByScore(players)
+    players = [...sortedArray]
+    addPlayer(players)
 }
 /*Function to add the delete, plus and minus buttons*/ 
 const createDelAddDiv = (playerDiv,firstName,lastName,country,score) => {
@@ -206,10 +206,10 @@ minusButton.addEventListener('click',event => {
 }
 
 /*Function to add the player*/ 
-const addPlayer = (sortedUsers) => {
+const addPlayer = (sortedPlayers) => {
     resultsDiv.textContent = ''
-    for(const user of sortedUsers) {
-    let{firstName,lastName,country,score,time} = user
+    for(const player of sortedPlayers) {
+    let{firstName,lastName,country,score,time} = player
 const playerDiv = document.createElement('div')
 playerDiv.setAttribute('class','player-div')
 resultsDiv.appendChild(playerDiv)
@@ -230,10 +230,10 @@ const errorStyles = (errorMessage) => {
     errorDiv.textContent = errorMessage
 
 }
-/*Function to check whether the user exist or not*/ 
-const userDuplicate = (firstNameValue,lastNameValue) => {
-    for (const user of users) {
-        if((user.firstName == firstNameValue) && (user.lastName == lastNameValue)) {
+/*Function to check whether the player exist or not*/ 
+const playerDuplicate = (firstNameValue,lastNameValue) => {
+    for (const player of players) {
+        if((player.firstName == firstNameValue) && (player.lastName == lastNameValue)) {
             return true
         }
     }
@@ -260,22 +260,22 @@ const validateInputs = () => {
         let errorMessage = 'Please enter only digits'
         errorStyles(errorMessage)
     }
-    else if(userDuplicate(firstNameValue,lastNameValue)) {
-        let errorMessage = 'User already exists'
+    else if(playerDuplicate(firstNameValue,lastNameValue)) {
+        let errorMessage = 'Player already exists'
         errorStyles(errorMessage)
     }
     else {
         let time = dateToday()
         errorDiv.textContent = ''
-        users.push({
+        players.push({
             firstName:firstNameValue,
             lastName: lastNameValue,
             country: countryValue,
             score: scoreValue,
             time: time
         })
-        const sortedUsers = sortByScore(users)
-        addPlayer(sortedUsers)
+        const sortedPlayers = sortByScore(players)
+        addPlayer(sortedPlayers)
     }
 }
 
@@ -284,9 +284,9 @@ addPlayerButton.addEventListener('click', event => {
     validateInputs()  
 })
 
-/*Home page to display the default users*/ 
-const sortedUsers = sortByScore(users)
-addPlayer(sortedUsers)
+/*Home page to display the default players*/ 
+const sortedPlayers = sortByScore(players)
+addPlayer(sortedPlayers)
 
 
 

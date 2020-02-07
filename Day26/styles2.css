@@ -1,0 +1,145 @@
+* {
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+
+}
+
+.feedback {
+    margin-top: 1rem;
+}
+
+
+.heading {
+
+    font-size: 35px;
+}
+
+.search-message {
+    display: none;
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.country-search{
+    margin-top: 1rem;
+    width: 40rem;   
+    border-radius: 20px;
+    padding: 0.75rem;
+    border: 0.40px solid rgb(196, 191, 191);
+    text-align: center;
+    outline: 0;
+
+}
+
+.error-message {
+    display: none;
+}
+
+.coutries-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #eeeff0;
+    padding: 3rem 2rem;
+
+}
+
+.countryDiv {
+
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: white;
+    line-height: 1.5;
+    width: 15rem;
+    height: 16rem;
+
+}
+
+.flag-image{
+    width: 8rem;
+    height: 5rem;
+    box-shadow: 1px 1px 1px;
+   
+}
+
+.country-name {
+    margin-top: 1rem;
+}
+
+.subtitle, #number, .graph-buttons {
+    margin-top: 1rem;
+}
+.statistics-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+#countries {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eeeff0;
+    padding-bottom: 1rem;
+    background-image: url(/Day26/globe-2.jpg);
+}
+
+.search-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+.starts-with,.includes,.sort {
+    margin-left: 0.25rem;
+}
+.search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+button{
+    cursor: pointer;
+    background-color:#7E63BE;
+    color: white;
+    height: 2rem;
+    border:none;
+    font-size: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+button:focus {
+    outline: 0;
+    border: none;
+    
+}
+.fa-exchange-alt {
+    font-size: 20px;
+    opacity: 0.8;
+    transform: rotate(270deg) scaleX(-1)
+}
+
+
+
+
+

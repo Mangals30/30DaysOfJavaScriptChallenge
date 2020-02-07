@@ -76,8 +76,8 @@ const getLangWidth = number => {
 const displayPopulation = () => {
     const populatedArr = tenPopulatedCountries(countries)
     const totalPop = getTotalPopulation(countries)
-    const popArray = populatedArr.map(country => country.population)
-    const sumOfPop = popArray.reduce((accum,current) => accum + current)
+    //const popArray = populatedArr.map(country => country.population)
+    //const sumOfPop = popArray.reduce((accum,current) => accum + current)
 
     feedBack.style.display = 'block'
     most.textContent = 'populated countries'
